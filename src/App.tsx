@@ -1,10 +1,18 @@
-import React from 'react';
+import React from "react";
 
-function App() {
+import { Container } from "./AppStyles";
+
+import { Navbar } from "./components/Navbar";
+
+import { Home } from "./pages/home";
+
+const App = () => {
   return (
-    <div>
-    </div>
+    <Container>
+      <Navbar />
+      <Home />
+    </Container>
   );
-}
+};
 
 export default App;
