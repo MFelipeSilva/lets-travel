@@ -4,14 +4,18 @@ export const NavBar = styled.nav`
   display: flex;
   width: 100%;
   height: 3.5em;
+  justify-content: center;
+  border-bottom: 1px solid #dfe0e4;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  width: 83%;
   align-items: center;
-  justify-content: space-evenly;
-  border-bottom: 1px solid #7f7f7f;
+  justify-content: space-around;
 `;
 
-export const Logo = styled.h2`
-
-`;
+export const Logo = styled.h2``;
 
 export const Links = styled.ul`
   display: flex;
