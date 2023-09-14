@@ -1,11 +1,12 @@
-import { NavBar, Logo, Links, Link, Content } from "./NavbarStyles";
-
 import {
   AiOutlineUser,
   AiOutlineCar,
   AiOutlineGlobal,
   AiOutlineExclamationCircle,
+  AiOutlineMenu,
 } from "react-icons/ai";
+
+import { NavBar, Logo, Links, Link, Content } from "./NavbarStyles";
 
 export const Navbar = () => {
   return (
@@ -29,6 +30,7 @@ export const Navbar = () => {
             <AiOutlineUser />
             Iniciar sessão
           </Link>
+          <AiOutlineMenu cursor={"pointer"} />
         </Links>
       </Content>
     </NavBar>

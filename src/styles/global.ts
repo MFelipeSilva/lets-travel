@@ -7,4 +7,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Wix Madefor Text', sans-serif;
   }
+
+  body {
+    overflow-x: hidden;
+  }
 `;

@@ -1,10 +1,9 @@
 import React from "react";
 
-import { Card } from "antd";
-
 import { AiOutlineCompass, AiOutlineTeam } from "react-icons/ai";
 
-import imagem_banner from "../../assets/imagem-banner-01.png";
+import { about } from "../../data/about";
+import { destinations_adverts } from "../../data/destinations-adverts";
 
 import {
   Main,
@@ -25,14 +24,12 @@ import {
   AboutCard,
   FindCard,
   TitleBanner,
+  AntMeta,
 } from "./styles";
 
-import { about } from "../../data/about";
-import { destinations_adverts } from "../../data/destinations-adverts";
+import imagem_banner from "../../assets/imagem-banner-01.png";
 
 export const Home = () => {
-  const { Meta } = Card;
-
   return (
     <Main>
       <Container>
@@ -66,7 +63,7 @@ export const Home = () => {
           <ContentCards>
             {destinations_adverts.map((item) => (
               <AntCard cover={<CardImg src={item.img} key={item.id} />}>
-                <Meta title={item.title} description={item.description} />
+                <AntMeta title={item.title} description={item.description} />
               </AntCard>
             ))}
           </ContentCards>

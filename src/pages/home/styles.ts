@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 
 import { Input, DatePicker, Button, Row, Col, Card } from "antd";
 
+const { Meta } = Card;
+
 const { RangePicker } = DatePicker;
 
 export const Main = styled.main`
@@ -91,6 +93,7 @@ export const AntButton = styled(Button)`
 
   @media (max-width: 768px) {
     width: 100%;
+    height: 2.88em;
   }
 `;
 
@@ -123,8 +126,8 @@ export const TitleBanner = styled.h1`
   width: 12em;
   z-index: 1;
   padding: 1em;
-  color: #ffffff;
-  font-size: 30pt;
+  color: #eeeeee;
+  font-size: clamp(16pt, 3vw, 28pt);
   position: absolute;
 `;
 
@@ -161,6 +164,10 @@ export const ContentCards = styled.div`
 
   @media (max-width: 768px) {
     overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 
@@ -171,15 +178,18 @@ export const AntCard = styled(Card)`
   box-shadow: 0 4px 8px 0 rgba(68, 68, 68, 0.2);
 `;
 
+export const AntMeta = styled(Meta)`
+`;
+
 export const AboutCard = styled(AntCard)`
   width: 500px;
-  height: 250px;
+  height: 100%;
   border: none;
   cursor: text;
   background-color: #eeeeee;
 
   div:nth-child(2) {
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
   }
 
   @media (max-width: 1400px) {
