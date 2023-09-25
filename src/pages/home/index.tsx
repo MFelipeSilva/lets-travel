@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { AiOutlineCompass, AiOutlineTeam } from "react-icons/ai";
+import App from "../../App";
 
 import { about } from "../../data/about";
 import { destinations_adverts } from "../../data/destinations-adverts";
 
+import { FindCard } from "../../components/FindCard";
+
 import {
   Main,
-  Container,
-  AntInput,
-  AntDatePicker,
-  AntButton,
   Title,
   Img,
   CardImg,
@@ -20,9 +18,9 @@ import {
   Image,
   Content,
   ContentCards,
+  Link,
   AntCard,
   AboutCard,
-  FindCard,
   TitleBanner,
   AntMeta,
 } from "./styles";
@@ -31,26 +29,9 @@ import imagem_banner from "../../assets/imagem-banner-01.png";
 
 export const Home = () => {
   return (
-    <Main>
-      <Container>
-        <FindCard title="Busque o seu local desejado" bordered={false}>
-          <AntInput
-            placeholder="Seu destino"
-            size="large"
-            prefix={<AiOutlineCompass fontSize={16} />}
-          />
-          <AntDatePicker
-            placeholder={["Entrada", "Saída"]}
-            suffixIcon={false}
-            size="large"
-          />
-          <AntInput
-            placeholder="Viajantes e quartos"
-            size="large"
-            prefix={<AiOutlineTeam fontSize={16} />}
-          />
-          <AntButton type="primary">Buscar</AntButton>
-        </FindCard>
+    <App>
+      <Main>
+        <FindCard />
         <Banner>
           <TitleBanner>
             Conheça o nosso site e encontre sua viagem com os melhores
@@ -62,9 +43,11 @@ export const Home = () => {
           <Title>Destinos mais buscados hoje no Brasil</Title>
           <ContentCards>
             {destinations_adverts.map((item) => (
-              <AntCard cover={<CardImg src={item.img} key={item.id} />}>
-                <AntMeta title={item.title} description={item.description} />
-              </AntCard>
+              <Link href="/reservas">
+                <AntCard cover={<CardImg src={item.img} key={item.id} />}>
+                  <AntMeta title={item.title} description={item.description} />
+                </AntCard>
+              </Link>
             ))}
           </ContentCards>
         </Content>
@@ -78,7 +61,7 @@ export const Home = () => {
             ))}
           </AntRow>
         </Content>
-      </Container>
-    </Main>
+      </Main>
+    </App>
   );
 };

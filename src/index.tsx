@@ -2,18 +2,34 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+import { QueryClientProvider } from "react-query";
+import { CityProvider } from "./context/DestinationsContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import GlobalStyle from "./styles/global";
 
+import { queryClient } from "./services/queryClient";
+
+import { Home } from "./pages/home";
+import { Bookings } from "./pages/bookings";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <CityProvider>
+        <Home />
+      </CityProvider>
+    ),
   },
   {
-    path: "/sign",
-    element: <div></div>,
+    path: "/reservas",
+    element: (
+      <CityProvider>
+        <Bookings />
+      </CityProvider>
+    ),
   },
 ]);
 
@@ -22,8 +38,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <GlobalStyle />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <GlobalStyle />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

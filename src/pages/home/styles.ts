@@ -4,13 +4,12 @@ import { Input, DatePicker, Button, Row, Col, Card } from "antd";
 
 const { Meta } = Card;
 
-const { RangePicker } = DatePicker;
-
 export const Main = styled.main`
   display: flex;
   width: 100%;
   height: 100%;
   margin-top: 4em;
+  margin-bottom: 7em;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -22,79 +21,6 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-`;
-
-export const FindCard = styled(Card)`
-  width: 58.5vw;
-
-  & > div:nth-child(1) {
-    border: 1px solid #dfe0e4;
-    border-radius: 15px 15px 0 0;
-  }
-  & > div:nth-child(2) {
-    display: flex;
-    gap: 1em;
-    height: 7em;
-    border: 1px solid #dfe0e4;
-    border-radius: 0 0 15px 15px;
-
-    @media (max-width: 768px) {
-      height: 100%;
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 768px) {
-    width: 80vw;
-  }
-`;
-
-export const AntInput = styled(Input)`
-  width: 70%;
-  border-color: #7f7f7f;
-
-  input::placeholder {
-    color: #595959;
-  }
-
-  &::placeholder {
-    color: #595959;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    display: inline-flex !important;
-  }
-`;
-
-export const AntDatePicker = styled(RangePicker)`
-  width: 70%;
-  border-color: #7f7f7f;
-
-  input::placeholder {
-    color: #595959 !important;
-  }
-
-  svg {
-    color: #000000 !important;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    display: inline-flex !important;
-  }
-`;
-
-export const AntButton = styled(Button)`
-  width: 20%;
-  height: 100%;
-  font-weight: 600;
-  border-radius: 15px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 2.88em;
-  }
 `;
 
 export const Title = styled.h1`
@@ -126,7 +52,7 @@ export const TitleBanner = styled.h1`
   width: 12em;
   z-index: 1;
   padding: 1em;
-  color: #eeeeee;
+  color: #FFFFFF;
   font-size: clamp(16pt, 3vw, 28pt);
   position: absolute;
 `;
@@ -162,13 +88,17 @@ export const ContentCards = styled.div`
   gap: 2.5em;
   flex-direction: row !important;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1900px) {
     overflow-x: scroll;
 
     &::-webkit-scrollbar {
       display: none;
     }
   }
+`;
+
+export const Link = styled.a`
+  text-decoration: none;
 `;
 
 export const AntCard = styled(Card)`

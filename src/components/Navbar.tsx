@@ -6,7 +6,7 @@ import {
   AiOutlineMenu,
 } from "react-icons/ai";
 
-import { NavBar, Logo, Links, Link, Content } from "./NavbarStyles";
+import { NavBar, Logo, Links, Link, Content } from "../styles/NavbarStyles";
 
 export const Navbar = () => {
   return (

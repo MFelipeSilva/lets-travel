@@ -1,19 +1,17 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-import { Container } from "./AppStyles";
+import { LayoutContainer } from "./AppStyles";
 
 import { Navbar } from "./components/Navbar";
-
-import { Home } from "./pages/home";
 import { Footer } from "./components/Footer";
 
-const App = () => {
+const App = ({ children }: any) => {
   return (
-    <Container>
+    <LayoutContainer>
       <Navbar />
-      <Home />
+      {children}
       <Footer />
-    </Container>
+    </LayoutContainer>
   );
 };
 
