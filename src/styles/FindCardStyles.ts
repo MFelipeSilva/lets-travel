@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Button, Card, DatePicker, Input, Select } from "antd";
+import { Card, DatePicker, Input, InputNumber, Popover } from "antd";
 
 const { RangePicker } = DatePicker;
 
@@ -34,8 +34,14 @@ export const AntInput = styled(Input)`
   width: 70%;
   border-color: #7f7f7f;
 
+  span {
+    font-size: 19px;
+  }
+
   input {
     font-weight: 500;
+    margin-left: 4px;
+    font-size: 16px !important;
   }
 
   input::placeholder {
@@ -53,6 +59,14 @@ export const AntDatePicker = styled(RangePicker)`
   width: 70%;
   border-color: #7f7f7f;
 
+  div:nth-child(1) {
+    margin-left: 30px;
+  }
+
+  div:nth-child(2) {
+    margin-right: 30px;
+  }
+
   input {
     font-weight: 500;
   }
@@ -66,31 +80,11 @@ export const AntDatePicker = styled(RangePicker)`
     color: #000000 !important;
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    display: inline-flex !important;
-  }
-`;
-
-export const AntSelect = styled(Select)`
-  width: 70%;
-  height: 100% !important;
-
-  & > div {
-    border-color: #7f7f7f !important;
-    height: 48px !important;
-
-    & > span {
-      margin: 4px 0 0 15px;
-      color: #595959 !important;
-      font-weight: normal;
-    }
-  }
-
   & > span {
-    left: 0 !important;
-    margin-left: 10px;
-    color: #595959 !important;
+    position: absolute;
+    font-size: 19px;
+    left: 0;
+    margin-left: 10px !important;
   }
 
   @media (max-width: 768px) {
@@ -99,14 +93,55 @@ export const AntSelect = styled(Select)`
   }
 `;
 
-export const AntButton = styled(Button)`
-  width: 20%;
-  height: 100%;
-  font-weight: 600;
-  border-radius: 15px;
+export const AntPopover = styled(Popover)``;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 2.88em;
+export const overlayStyle = {
+  background: "#23232fff",
+  width: "300px",
+  borderRadius: "15px",
+};
+
+export const ContainerPopover = styled.div`
+  display: flex;
+  height: 200px;
+  padding: 20px 20px 10px 20px;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const ContentPopover = styled.div`
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+`;
+
+export const TextPopover = styled.p`
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const CounterPopover = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+export const AntInputNumber = styled(InputNumber)`
+  width: 3em;
+
+  div:nth-child(2) > input {
+    text-align: center;
+    font-size: 11pt;
   }
+`;
+
+export const FooterPopover = styled.div`
+  display: flex;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  align-items: center;
+  justify-content: space-between;
 `;

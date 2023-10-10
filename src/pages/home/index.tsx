@@ -25,7 +25,7 @@ import {
   AntMeta,
 } from "./styles";
 
-import imagem_banner from "../../assets/imagem-banner-01.png";
+import imagem_banner from "../../assets/imagem-banner-01.jpg";
 
 export const Home = () => {
   return (

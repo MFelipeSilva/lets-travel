@@ -53,8 +53,9 @@ export const TitleBanner = styled.h1`
   z-index: 1;
   padding: 1em;
   color: #FFFFFF;
-  font-size: clamp(16pt, 3vw, 28pt);
+  font-weight: 700;
   position: absolute;
+  font-size: clamp(16pt, 3vw, 28pt);
 `;
 
 export const Img = styled.img`
@@ -74,7 +75,7 @@ export const Content = styled.div`
   display: flex;
   width: 58.5vw;
   gap: 2.5em;
-  margin-top: 6em;
+  margin-top: 8em;
   text-align: start;
   flex-direction: column;
 

@@ -2,32 +2,153 @@ import React, { useContext } from "react";
 
 import locale from "antd/es/date-picker/locale/pt_BR";
 
-import { AiOutlineCompass, AiOutlineTeam } from "react-icons/ai";
+import {
+  AiOutlineCompass,
+  AiOutlineTeam,
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineCalendar,
+} from "react-icons/ai";
 
 import {
-  AntButton,
+  PrimaryButton,
+  SecondaryButton,
+  TransparentButton,
+} from "../styles/Button";
+
+import {
   AntCard,
   AntDatePicker,
   AntInput,
-  AntSelect,
+  AntInputNumber,
+  AntPopover,
+  ContainerPopover,
+  ContentPopover,
+  CounterPopover,
+  FooterPopover,
+  TextPopover,
+  overlayStyle,
 } from "../styles/FindCardStyles";
 
 import { CityContext } from "../context/DestinationsContext";
 
 export const FindCard = () => {
-  const dateFormatList = ["DD/MM/YY", "DD/MM/YY", "DD-MM-YY", "DD-MM-YY"];
-
   const {
-    setCity,
-    setSearchCity,
-    setInitialDate,
-    setPeople,
+    destinations,
+    setDestinations,
+    handleRangePickerChange,
     submitDestinationsData,
   } = useContext(CityContext);
 
-  const handleRangePickerChange = (dates: any) => {
-    return setInitialDate(dates);
-  };
+  const content = (
+    <ContainerPopover>
+      <ContentPopover>
+        <TextPopover>
+          Adultos
+          <CounterPopover>
+            <SecondaryButton
+              size="middle"
+              shape="circle"
+              onClick={() => {
+                {
+                  setDestinations((prevDestinations) => ({
+                    ...prevDestinations,
+                    people:
+                      destinations.people > 1 ? destinations.people - 1 : 1,
+                  }));
+                }
+              }}
+            >
+              <AiOutlineMinus />
+            </SecondaryButton>
+            <AntInputNumber
+              min={1}
+              max={14}
+              defaultValue={destinations.people}
+              readOnly
+              bordered={false}
+              value={destinations.people}
+            />
+            <SecondaryButton
+              size="middle"
+              shape="circle"
+              onClick={() => {
+                {
+                  setDestinations((prevDestinations) => ({
+                    ...prevDestinations,
+                    people:
+                      destinations.people < 14 ? destinations.people + 1 : 14,
+                  }));
+                }
+              }}
+            >
+              <AiOutlinePlus />
+            </SecondaryButton>
+          </CounterPopover>
+        </TextPopover>
+        <TextPopover>
+          Quartos
+          <CounterPopover>
+            <SecondaryButton
+              size="middle"
+              shape="circle"
+              onClick={() => {
+                {
+                  setDestinations((prevDestinations) => ({
+                    ...prevDestinations,
+                    room: destinations.room > 1 ? destinations.room - 1 : 1,
+                  }));
+                }
+              }}
+            >
+              <AiOutlineMinus />
+            </SecondaryButton>
+            <AntInputNumber
+              min={1}
+              max={6}
+              defaultValue={destinations.room}
+              readOnly
+              bordered={false}
+              value={destinations.room}
+            />
+            <SecondaryButton
+              size="middle"
+              shape="circle"
+              onClick={() => {
+                {
+                  setDestinations((prevDestinations) => ({
+                    ...prevDestinations,
+                    room: destinations.room < 6 ? destinations.room + 1 : 6,
+                  }));
+                }
+              }}
+            >
+              <AiOutlinePlus />
+            </SecondaryButton>
+          </CounterPopover>
+        </TextPopover>
+      </ContentPopover>
+      <FooterPopover>
+        <TransparentButton
+          type="link"
+          onClick={() => {
+            {
+              setDestinations((prevDestinations) => ({
+                ...prevDestinations,
+                people: 1,
+                room: 1,
+              }));
+            }
+          }}
+        >
+          Redefinir
+        </TransparentButton>
+        <PrimaryButton type="primary" size="large">
+          Confirmar
+        </PrimaryButton>
+      </FooterPopover>
+    </ContainerPopover>
+  );
 
   return (
     <AntCard title="Busque o seu local desejado" bordered={false}>
@@ -35,27 +156,39 @@ export const FindCard = () => {
         placeholder="Seu destino"
         size="large"
         onChange={(e) => {
-          setCity("");
-          setSearchCity(e.target.value);
+          setDestinations((prevDestinations) => ({
+            ...prevDestinations,
+            searchCity: e.target.value,
+          }));
         }}
-        prefix={<AiOutlineCompass fontSize={16} />}
+        prefix={<AiOutlineCompass />}
       />
       <AntDatePicker
         placeholder={["Entrada", "Saída"]}
-        suffixIcon={false}
+        suffixIcon={<AiOutlineCalendar />}
         locale={locale}
-        format={dateFormatList}
+        format="DD/MM/YY"
         onChange={handleRangePickerChange}
         size="large"
       />
-      <AntSelect
-        placeholder="1 viajante, 1 quarto"
-        size="large"
-        suffixIcon={<AiOutlineTeam fontSize={16} />}
-      />
-      <AntButton type="primary" onClick={submitDestinationsData}>
+      <AntPopover
+        content={content}
+        placement="bottom"
+        trigger="click"
+        overlayStyle={overlayStyle}
+      >
+        <AntInput
+          placeholder={`${destinations.people} viajante${
+            destinations.people > 1 ? "s" : ""
+          }, ${destinations.room} quarto${destinations.room > 1 ? "s" : ""}`}
+          readOnly
+          size="large"
+          prefix={<AiOutlineTeam />}
+        />
+      </AntPopover>
+      <PrimaryButton type="primary" onClick={submitDestinationsData}>
         Buscar
-      </AntButton>
+      </PrimaryButton>
     </AntCard>
   );
 };

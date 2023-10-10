@@ -1,8 +1,6 @@
-import axios from "axios";
-
 import { instance } from "./axios";
 
-interface CityProps {
+export interface CityProps {
   city: string;
 }
 
