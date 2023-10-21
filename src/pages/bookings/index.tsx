@@ -146,9 +146,7 @@ export const Bookings = () => {
                       R${" "}
                       {hotelDetailsData &&
                         hotelDetailsData[index].composite_price_breakdown
-                          .gross_amount_per_night.value +
-                          hotelDetailsData[index]
-                            .included_taxes_and_charges_amount.value}
+                          .gross_amount_per_night.value}
                     </TextPrice>
                   </CardPrices>
                 </CardContent>

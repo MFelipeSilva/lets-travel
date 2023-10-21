@@ -5,12 +5,61 @@ import { Card, DatePicker, Input, InputNumber, Popover } from "antd";
 const { RangePicker } = DatePicker;
 
 export const AntCard = styled(Card)`
-  width: 58.5vw;
+  width: 65vw;
   border-radius: 15px;
 
   & > div:nth-child(1) {
+    height: 40px;
     border: 1px solid #dfe0e4;
     border-radius: 15px 15px 0 0;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        display: flex;
+        gap: 0.2em;
+
+        small {
+          display: flex;
+          position: relative;
+          gap: 0.3em;
+          cursor: pointer;
+          font-size: 10pt;
+          font-weight: 700;
+          align-items: center;
+          padding: 18px 15px;
+
+          &:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-left: 2px;
+            transition: background-color 0.3s ease;
+          }
+
+          &:nth-child(3):after {
+            margin-left: 0;
+          }
+
+          &:hover:after {
+            background-color: #000000;
+          }
+
+          svg {
+            font-size: 12pt;
+          }
+        }
+      }
+    }
   }
   & > div:nth-child(2) {
     display: flex;
@@ -42,11 +91,13 @@ export const AntInput = styled(Input)`
     font-weight: 500;
     margin-left: 4px;
     font-size: 16px !important;
+    font-family: "Manrope", sans-serif;
   }
 
   input::placeholder {
     color: #595959;
     font-weight: normal;
+    font-family: "Manrope", sans-serif;
   }
 
   @media (max-width: 768px) {
@@ -69,6 +120,8 @@ export const AntDatePicker = styled(RangePicker)`
 
   input {
     font-weight: 500;
+    margin-top: 1px;
+    font-family: "Manrope", sans-serif;
   }
 
   input::placeholder {

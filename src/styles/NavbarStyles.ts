@@ -10,7 +10,7 @@ export const NavBar = styled.nav`
 
 export const Content = styled.div`
   display: flex;
-  width: 58vw;
+  width: 65vw;
   align-items: center;
   justify-content: space-between;
 
@@ -36,7 +36,8 @@ export const Links = styled.ul`
 export const Link = styled.li`
   display: flex;
   gap: 5px;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   align-items: center;
 

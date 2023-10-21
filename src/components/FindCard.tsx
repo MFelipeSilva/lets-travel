@@ -10,6 +10,10 @@ import {
   AiOutlineCalendar,
 } from "react-icons/ai";
 
+import { TbBuildingSkyscraper } from "react-icons/tb";
+
+import { MdOutlineTravelExplore, MdOutlineHomeWork } from "react-icons/md";
+
 import {
   PrimaryButton,
   SecondaryButton,
@@ -151,7 +155,22 @@ export const FindCard = () => {
   );
 
   return (
-    <AntCard title="Busque o seu local desejado" bordered={false}>
+    <AntCard
+      title={
+        <p>
+          <small>
+            <MdOutlineTravelExplore /> Todos
+          </small>{" "}
+          <small>
+            <TbBuildingSkyscraper /> Hotel
+          </small>{" "}
+          <small>
+            <MdOutlineHomeWork /> Casa/Apartamento
+          </small>
+        </p>
+      }
+      bordered={false}
+    >
       <AntInput
         placeholder="Seu destino"
         size="large"

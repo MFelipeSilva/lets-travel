@@ -17,6 +17,7 @@ export const PrimaryButton = styled(Button)`
 
 export const SecondaryButton = styled(Button)`
   display: flex;
+  z-index: 1;
   align-items: center;
   justify-content: center;
 `;

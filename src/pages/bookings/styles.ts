@@ -5,7 +5,7 @@ import { Card } from "antd";
 export const Main = styled.div`
   display: flex;
   width: 100%;
-  height: 62.5vh;
+  height: 100%;
   align-items: start;
   justify-content: center;
   background-color: #f2f4f5;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  width: 58.5vw;
+  width: 65vw;
   gap: 2.5em;
   margin-top: 5em;
   text-align: start;

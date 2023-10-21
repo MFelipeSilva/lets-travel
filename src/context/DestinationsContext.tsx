@@ -70,7 +70,6 @@ const useDebounce = (value: any, delay: number) => {
   return debouncedValue;
 };
 
-
 export const CityProvider = ({ children }: any) => {
   const [destinations, setDestinations] = useState<DebouncedSearchCityType>({
     searchCity: "",
@@ -83,13 +82,9 @@ export const CityProvider = ({ children }: any) => {
   });
 
   const handleRangePickerChange = (dates: any) => {
-    const checkInDateInfo = `${dates[0].$y}-${dates[0].$M + 1}-${
-      "0" + dates[0].$D
-    }`;
+    const checkInDateInfo = `${dates[0].$y}-${dates[0].$M + 1}-${dates[0].$D}`;
 
-    const checkOutDateInfo = `${dates[1].$y}-${dates[1].$M + 1}-${
-      "0" + dates[1].$D
-    }`;
+    const checkOutDateInfo = `${dates[1].$y}-${dates[1].$M + 1}-${dates[1].$D}`;
 
     setDestinations((prevDestinations) => ({
       ...prevDestinations,
