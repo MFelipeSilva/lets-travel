@@ -88,7 +88,7 @@ export const AntInput = styled(Input)`
   }
 
   input {
-    font-weight: 500;
+    font-weight: 600;
     margin-left: 4px;
     font-size: 16px !important;
     font-family: "Manrope", sans-serif;
@@ -118,8 +118,12 @@ export const AntDatePicker = styled(RangePicker)`
     margin-right: 30px;
   }
 
+  div:nth-child(3):focus-within + div:nth-child(4) {
+    left: 180px !important;
+  }
+
   input {
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 1px;
     font-family: "Manrope", sans-serif;
   }
@@ -135,7 +139,7 @@ export const AntDatePicker = styled(RangePicker)`
 
   & > span {
     position: absolute;
-    font-size: 19px;
+    font-size: 18px;
     left: 0;
     margin-left: 10px !important;
   }

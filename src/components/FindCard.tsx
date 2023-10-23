@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 
 import locale from "antd/es/date-picker/locale/pt_BR";
 
-import {
-  AiOutlineCompass,
-  AiOutlineTeam,
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiOutlineCalendar,
-} from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 import { TbBuildingSkyscraper } from "react-icons/tb";
 
-import { MdOutlineTravelExplore, MdOutlineHomeWork } from "react-icons/md";
+import {
+  MdOutlineTravelExplore,
+  MdOutlineHomeWork,
+  MdOutlinePeopleAlt,
+  MdCalendarToday,
+  MdOutlineShareLocation,
+} from "react-icons/md";
 
 import {
   PrimaryButton,
@@ -147,7 +147,18 @@ export const FindCard = () => {
         >
           Redefinir
         </TransparentButton>
-        <PrimaryButton type="primary" size="large">
+        <PrimaryButton
+          type="primary"
+          size="large"
+          onClick={() => {
+            {
+              setDestinations((prevDestinations) => ({
+                ...prevDestinations,
+                confirmPersonAndRooms: [destinations.people, destinations.room],
+              }));
+            }
+          }}
+        >
           Confirmar
         </PrimaryButton>
       </FooterPopover>
@@ -180,11 +191,11 @@ export const FindCard = () => {
             searchCity: e.target.value,
           }));
         }}
-        prefix={<AiOutlineCompass />}
+        prefix={<MdOutlineShareLocation />}
       />
       <AntDatePicker
         placeholder={["Entrada", "Saída"]}
-        suffixIcon={<AiOutlineCalendar />}
+        suffixIcon={<MdCalendarToday />}
         locale={locale}
         format="DD/MM/YY"
         onChange={handleRangePickerChange}
@@ -197,12 +208,19 @@ export const FindCard = () => {
         overlayStyle={overlayStyle}
       >
         <AntInput
-          placeholder={`${destinations.people} viajante${
-            destinations.people > 1 ? "s" : ""
-          }, ${destinations.room} quarto${destinations.room > 1 ? "s" : ""}`}
+          placeholder="1 viajante, 1 quarto"
+          value={
+            destinations.confirmPersonAndRooms
+              ? `${destinations.confirmPersonAndRooms[0] ?? ""} viajante${
+                  destinations.confirmPersonAndRooms[0] > 1 ? "s" : ""
+                }, ${destinations.confirmPersonAndRooms[1] ?? ""} quarto${
+                  destinations.confirmPersonAndRooms[1] > 1 ? "s" : ""
+                }`
+              : ""
+          }
           readOnly
           size="large"
-          prefix={<AiOutlineTeam />}
+          prefix={<MdOutlinePeopleAlt />}
         />
       </AntPopover>
       <PrimaryButton type="primary" onClick={submitDestinationsData}>

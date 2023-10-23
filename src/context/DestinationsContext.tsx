@@ -8,6 +8,7 @@ interface DestinationsContextType {
     checkOutDate: string;
     people: number;
     room: number;
+    confirmPersonAndRooms: null;
     hotelIds: [0];
   };
   setDestinations: React.Dispatch<
@@ -24,6 +25,7 @@ interface DebouncedSearchCityType {
   checkOutDate: string;
   people: number;
   room: number;
+  confirmPersonAndRooms: any;
   hotelIds: [0];
 }
 
@@ -35,6 +37,7 @@ const initialDestinationsContext: DestinationsContextType = {
     checkOutDate: "",
     people: 0,
     room: 0,
+    confirmPersonAndRooms: null,
     hotelIds: [0],
   },
   setDestinations: () => {},
@@ -46,6 +49,7 @@ const initialDestinationsContext: DestinationsContextType = {
     checkOutDate: "",
     people: 0,
     room: 0,
+    confirmPersonAndRooms: null,
     hotelIds: [0],
   }),
 };
@@ -78,6 +82,7 @@ export const CityProvider = ({ children }: any) => {
     checkOutDate: "",
     people: 1,
     room: 1,
+    confirmPersonAndRooms: null,
     hotelIds: [0],
   });
 
