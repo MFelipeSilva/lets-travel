@@ -4,28 +4,28 @@ import { FaRegCircleUser } from "react-icons/fa6";
 
 import { MdOutlineCardTravel } from "react-icons/md";
 
-import { NavBar, Logo, Links, Link, Content } from "../styles/NavbarStyles";
+import { NavBar, Logo, Pages, Page, Content } from "./styles";
 
 export const Navbar = () => {
   return (
     <NavBar>
       <Content>
         <Logo>Let's Travel</Logo>
-        <Links>
-          <Link>
+        <Pages>
+          <Page>
             <AiOutlineGlobal />
             Português
-          </Link>
-          <Link>
+          </Page>
+          <Page>
             <MdOutlineCardTravel />
             Minhas viagens
-          </Link>
-          <Link>
+          </Page>
+          <Page>
             <FaRegCircleUser />
             Iniciar sessão
-          </Link>
+          </Page>
           <AiOutlineMenu cursor={"pointer"} />
-        </Links>
+        </Pages>
       </Content>
     </NavBar>
   );

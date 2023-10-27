@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import { Row, Col, Card, Carousel } from "antd";
+import { Row, Col, Card } from "antd";
 
 const { Meta } = Card;
 
@@ -29,6 +29,11 @@ export const ContentBanner = styled.div`
   padding-left: 3em;
   position: absolute;
   flex-direction: column;
+
+  & > button {
+    width: clamp(65%, 11vw, 100%);
+    height: 3.5em !important;
+  }
 `;
 
 export const TitleBanner = styled.h1`
@@ -78,67 +83,25 @@ export const CarouselContainer = styled.div`
 `;
 
 export const CarouselContent = styled.div`
-  z-index: 1;
   width: 65vw;
   height: 25em !important;
-`;
 
-export const CardCarousel = styled(Carousel)`
-  & > div > div {
-    display: flex !important;
-    margin-left: 32em;
-    gap: 3em !important;
-  }
-
-  .slick-slide > div {
-    min-height: 38em;
-  }
-
-  @media (min-width: 1200px) {
-    .slick-slide {
-      width: 5.5% !important;
-    }
-  }
-
-  @media (max-width: 1199px) and (min-width: 992px) {
-    .slick-slide {
-      width: 3.5% !important;
-    }
-  }
-
-  @media (max-width: 991px) and (min-width: 768px) {
-    .slick-slide {
-      width: 50% !important;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .slick-slide {
-      width: 100% !important;
-    }
+  @media (max-width: 768px) {
+    width: 80vw;
   }
 `;
 
 export const AntCard = styled(Card)`
-  min-width: 300px !important;
-  height: 400px;
+  min-width: 320px !important;
+  height: 360px;
   cursor: pointer;
   border: 1px solid rgba(68, 68, 68, 0.2);
   box-shadow: 0 4px 8px 0 rgba(68, 68, 68, 0.2);
 `;
 
-export const AntMeta = styled(Meta)``;
-
-export const ButtonContent = styled.div`
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: space-between;
-
-  button:nth-child(1) {
-    opacity: 0;
+export const AntMeta = styled(Meta)`
+  div:nth-child(2) {
+    color: #000000;
   }
 `;
 

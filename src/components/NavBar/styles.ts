@@ -21,7 +21,7 @@ export const Content = styled.div`
 
 export const Logo = styled.h2``;
 
-export const Links = styled.ul`
+export const Pages = styled.ul`
   display: flex;
   gap: 2em;
   flex-direction: row;
@@ -33,7 +33,7 @@ export const Links = styled.ul`
   }
 `;
 
-export const Link = styled.li`
+export const Page = styled.li`
   display: flex;
   gap: 5px;
   font-size: 14px;

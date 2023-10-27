@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import App from "../../App";
 
@@ -7,7 +7,9 @@ import { destinations_adverts } from "../../data/destinations-adverts";
 
 import { FindCard } from "../../components/FindCard";
 
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { Carousel } from "../../components/Carousel";
+
+import { PrimaryButton } from "../../styles/Button";
 
 import {
   Main,
@@ -24,33 +26,11 @@ import {
   TitleBanner,
   AntMeta,
   CarouselContent,
-  CardCarousel,
-  ButtonContent,
   CarouselContainer,
   ContentBanner,
 } from "./styles";
 
-import { PrimaryButton, SecondaryButton } from "../../styles/Button";
-
 export const Home = () => {
-  const carouselRef = useRef<any>(null);
-
-  const next = () => {
-    carouselRef.current.next();
-  };
-
-  const prev = () => {
-    carouselRef.current.prev();
-  };
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    arrows: true,
-  };
-
   return (
     <App>
       <Main>
@@ -71,7 +51,7 @@ export const Home = () => {
           <Title>Destinos mais buscados hoje no Brasil</Title>
           <CarouselContainer>
             <CarouselContent>
-              <CardCarousel ref={carouselRef} {...settings}>
+              <Carousel>
                 {destinations_adverts.map((item) => (
                   <Link href="/reservas">
                     <AntCard cover={<CardImg src={item.img} key={item.id} />}>
@@ -82,21 +62,8 @@ export const Home = () => {
                     </AntCard>
                   </Link>
                 ))}
-              </CardCarousel>
+              </Carousel>
             </CarouselContent>
-            <ButtonContent>
-              <SecondaryButton
-                onClick={prev}
-                shape="circle"
-                icon={<AiOutlineLeft fontSize="16pt" />}
-              />
-              <SecondaryButton
-                onClick={next}
-                shape="circle"
-                size="large"
-                icon={<AiOutlineRight fontSize="16pt" />}
-              />
-            </ButtonContent>
           </CarouselContainer>
         </Content>
         <Content>

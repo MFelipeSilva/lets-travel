@@ -18,7 +18,7 @@ import {
   PrimaryButton,
   SecondaryButton,
   TransparentButton,
-} from "../styles/Button";
+} from "../../styles/Button";
 
 import {
   AntCard,
@@ -32,9 +32,9 @@ import {
   FooterPopover,
   TextPopover,
   overlayStyle,
-} from "../styles/FindCardStyles";
+} from "./styles";
 
-import { CityContext } from "../context/DestinationsContext";
+import { CityContext } from "../../context/DestinationsContext";
 
 export const FindCard = () => {
   const {

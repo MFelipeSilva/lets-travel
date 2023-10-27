@@ -5,9 +5,9 @@ import styled from "styled-components";
 export const PrimaryButton = styled(Button)`
   height: 100%;
   padding: 0 30px;
-  font-size: 11pt !important;
   font-weight: 600;
-  border-radius: 15px;
+  font-size: clamp(10pt, 1vw, 11pt) !important;
+  border-radius: 15px !important;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -20,6 +20,7 @@ export const SecondaryButton = styled(Button)`
   z-index: 1;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff !important;
 `;
 
 export const TransparentButton = styled(Button)`

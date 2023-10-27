@@ -11,7 +11,7 @@ import {
   Logo,
   ContentCol,
   Terms,
-} from "../styles/FooterStyles";
+} from "./styles";
 
 export const Footer = () => {
   return (
