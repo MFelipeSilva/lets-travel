@@ -1,4 +1,7 @@
 import { useContext, useEffect } from "react";
+
+import axios from "axios";
+
 import { useQuery } from "react-query";
 
 import { FaSwimmingPool } from "react-icons/fa";
@@ -35,9 +38,9 @@ import {
   CardPrices,
   CardInformation,
   TextPrice,
+  DiaryAndPeople,
+  TaxesAndFees,
 } from "./styles";
-
-import axios from "axios";
 
 export const Bookings = () => {
   const { setDestinations, submitDestinationsData } = useContext(CityContext);
@@ -80,23 +83,36 @@ export const Bookings = () => {
   });
 
   useEffect(() => {
-    setDestinations((prevDestinations) => ({
-      ...prevDestinations,
-      hotelIds: hotelsData?.results.map((ids: any) => ids.id),
-    }));
+    if (hotelsData && hotelsData.results && hotelsData.results.length > 0) {
+      const hotelIds = hotelsData.results.map((hotel: any) => hotel.id);
+      setDestinations((prevDestinations) => ({
+        ...prevDestinations,
+        hotelIds: hotelIds,
+      }));
+    } else {
+      setDestinations((prevDestinations) => ({
+        ...prevDestinations,
+        hotelIds: [],
+      }));
+    }
   }, [hotelsData]);
 
-  const fetchHotelDetailsData: any = async () => {
-    const requests = props.hotelIds.map((hotelId: any) =>
-      fetchHotelDetails(hotelId, props.checkInDate, props.checkOutDate)
-    );
-    const hotelDetails = await axios.all(requests);
-    return hotelDetails;
-  };
-
-  const { data: hotelDetailsData }: any = useQuery(
-    ["hotelDescriptions"],
-    fetchHotelDetailsData,
+  const { data: hotelDetailsData } = useQuery(
+    [
+      "hotelDescriptions",
+      props.hotelIds,
+      props.checkInDate,
+      props.checkOutDate,
+    ],
+    () => {
+      if (!props.hotelIds || props.hotelIds.length === 0) {
+        return [];
+      }
+      const requests = props.hotelIds.map((hotelId) =>
+        fetchHotelDetails(hotelId, props.checkInDate, props.checkOutDate)
+      );
+      return axios.all(requests);
+    },
     {
       enabled: !!props.hotelIds && props.hotelIds.length > 0,
     }
@@ -106,9 +122,9 @@ export const Bookings = () => {
     <App>
       <Main>
         <Container>
-          <FindCard />
+          <FindCard redirectTo="/reservas" />
           <Content>
-            <Title>Hospedagens encontradas</Title>
+            <Title>Hospedagens encontradas em ({props.searchCity})</Title>
             {hotelsData?.results.map((hotel: any, index: number) => (
               <AntCard>
                 <CardImage src={hotel.photoMainUrl} />
@@ -142,12 +158,14 @@ export const Bookings = () => {
                     </CardScore>
                   </CardInformation>
                   <CardPrices>
+                    <DiaryAndPeople>1 diária, 2 adultos</DiaryAndPeople>
                     <TextPrice>
                       R${" "}
                       {hotelDetailsData &&
                         hotelDetailsData[index].composite_price_breakdown
                           .gross_amount_per_night.value}
                     </TextPrice>
+                    <TaxesAndFees>inclui impostos e taxas</TaxesAndFees>
                   </CardPrices>
                 </CardContent>
               </AntCard>

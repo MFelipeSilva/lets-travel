@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
 
+import { useNavigate } from "react-router-dom";
+
+import dayjs from "dayjs";
+
 import locale from "antd/es/date-picker/locale/pt_BR";
 
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
@@ -36,7 +40,13 @@ import {
 
 import { CityContext } from "../../context/DestinationsContext";
 
-export const FindCard = () => {
+interface FindCardProps {
+  redirectTo: string;
+}
+
+export const FindCard = ({ redirectTo }: FindCardProps) => {
+  const navigate = useNavigate();
+
   const {
     destinations,
     setDestinations,
@@ -165,6 +175,21 @@ export const FindCard = () => {
     </ContainerPopover>
   );
 
+  const dayjsDates = destinations.selectDate.map((date) => {
+    if (date === null) {
+      return null;
+    }
+    return dayjs(date);
+  });
+
+  const handleSearch = () => {
+    setDestinations(destinations);
+
+    submitDestinationsData();
+
+    navigate(redirectTo);
+  };
+
   return (
     <AntCard
       title={
@@ -191,6 +216,7 @@ export const FindCard = () => {
             searchCity: e.target.value,
           }));
         }}
+        value={destinations.searchCity ? destinations.searchCity : ""}
         prefix={<MdOutlineShareLocation />}
       />
       <AntDatePicker
@@ -199,6 +225,7 @@ export const FindCard = () => {
         locale={locale}
         format="DD/MM/YY"
         onChange={handleRangePickerChange}
+        value={[dayjsDates[0], dayjsDates[1]]}
         size="large"
       />
       <AntPopover
@@ -223,7 +250,7 @@ export const FindCard = () => {
           prefix={<MdOutlinePeopleAlt />}
         />
       </AntPopover>
-      <PrimaryButton type="primary" onClick={submitDestinationsData}>
+      <PrimaryButton type="primary" onClick={handleSearch}>
         Buscar
       </PrimaryButton>
     </AntCard>

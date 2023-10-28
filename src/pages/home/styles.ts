@@ -40,7 +40,7 @@ export const TitleBanner = styled.h1`
   width: 13em;
   color: #ffffff;
   font-weight: 700;
-  font-size: clamp(16pt, 3vw, 26pt);
+  font-size: clamp(16pt, 3vw, 28pt);
 `;
 
 export const Image = styled.img`

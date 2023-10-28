@@ -53,3 +53,8 @@ export const Page = styled.li`
     display: none;
   }
 `;
+
+export const Link = styled.a`
+  color: #000000;
+  text-decoration: none;
+`;

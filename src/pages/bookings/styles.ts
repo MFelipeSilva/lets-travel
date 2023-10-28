@@ -27,7 +27,7 @@ export const Content = styled.div`
   text-align: start;
   flex-direction: column;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1300px) {
     width: 80vw;
   }
 `;
@@ -73,6 +73,7 @@ export const CardInformation = styled.div`
 `;
 
 export const CardTitle = styled.h2`
+  width: 100%;
   font-size: 16pt;
   font-weight: 700;
 `;
@@ -122,14 +123,29 @@ export const EvaluationScore = styled.p`
 `;
 
 export const CardPrices = styled.div`
-  width: 20em;
-  border-radius: 15px;
+  display: flex;
+  width: 14vw;
+  padding: 20px 15px;
   background-color: #f2f4f5;
+  border-radius: 15px;
   border: 1px solid rgba(3, 4, 94, 0.2);
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+`;
+
+export const DiaryAndPeople = styled.p`
+  font-size: 9pt;
+  font-weight: 500;
 `;
 
 export const TextPrice = styled.p`
-  font-size: 14pt;
+  font-size: 15pt;
   color: #03045e;
   font-weight: 800;
+`;
+
+export const TaxesAndFees = styled.p`
+  font-size: 9pt;
+  font-weight: 500;
 `;

@@ -34,7 +34,7 @@ export const Home = () => {
   return (
     <App>
       <Main>
-        <FindCard />
+        <FindCard redirectTo="/reservas" />
         <Banner>
           <ContentBanner>
             <TitleBanner>
@@ -53,7 +53,7 @@ export const Home = () => {
             <CarouselContent>
               <Carousel>
                 {destinations_adverts.map((item) => (
-                  <Link href="/reservas">
+                  <Link>
                     <AntCard cover={<CardImg src={item.img} key={item.id} />}>
                       <AntMeta
                         title={item.title}

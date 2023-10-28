@@ -4,7 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 import { CardCarousel } from "./styles";
 
-import { SecondaryButton } from "../../styles/Button";
+import { SecondaryButton, SecondaryButtonDisabled } from "../../styles/Button";
 
 interface CarouselProps {
   children: ReactNode;
@@ -53,14 +53,18 @@ export const Carousel = ({ children }: CarouselProps) => {
         size="large"
         icon={<AiOutlineRight fontSize="16pt" />}
       />
-    ) : undefined,
+    ) : (
+      <SecondaryButtonDisabled />
+    ),
     prevArrow: showPrevButton ? (
       <SecondaryButton
         onClick={prev}
         shape="circle"
         icon={<AiOutlineLeft fontSize="16pt" />}
       />
-    ) : undefined,
+    ) : (
+      <SecondaryButtonDisabled />
+    ),
   };
 
   return (

@@ -23,6 +23,13 @@ export const SecondaryButton = styled(Button)`
   background-color: #ffffff !important;
 `;
 
+export const SecondaryButtonDisabled = styled(Button)`
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 125ms ease 0s;
+`;
+
 export const TransparentButton = styled(Button)`
   cursor: pointer;
   border: none;
