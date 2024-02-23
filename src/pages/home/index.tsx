@@ -1,5 +1,3 @@
-import React from "react";
-
 import App from "../../App";
 
 import { about } from "../../data/about";
@@ -53,7 +51,7 @@ export const Home = () => {
             <CarouselContent>
               <Carousel>
                 {destinations_adverts.map((item) => (
-                  <Link>
+                  <Link key={item.id}>
                     <AntCard cover={<CardImg src={item.img} key={item.id} />}>
                       <AntMeta
                         title={item.title}

@@ -16,20 +16,15 @@ export const fetchHotels = async (
 ) => {
   const params = {
     order_by: "popularity",
-    adults_number: guests,
-    checkin_date: checkIn,
-    filter_by_currency: "AED",
-    dest_id: city,
-    locale: "pt-br",
     checkout_date: checkOut,
+    filter_by_currency: "AED",
+    locale: "pt-br",
     units: "metric",
-    room_number: room,
+    dest_id: city,
     dest_type: "city",
-    include_adjacency: "true",
-    children_number: "2",
-    page_number: "0",
-    children_ages: "0",
-    categories_filter_ids: "class::2,class::4,free_cancellation::1",
+    adults_number: guests,
+    room_number: room,
+    checkin_date: checkIn,
   };
 
   try {
