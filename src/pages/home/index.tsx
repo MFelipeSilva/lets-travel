@@ -5,9 +5,12 @@ import { destinations_adverts } from "../../data/destinations-adverts";
 
 import { FindCard } from "../../components/FindCard";
 
-import { Carousel } from "../../components/Carousel";
+import { PlacesCarousel, AboutCarousel } from "../../components/Carousel";
 
 import { PrimaryButton } from "../../styles/Button";
+
+import airplane from "../../assets/airplane.png";
+import photo_travel from "../../assets/photo-travel.jpg";
 
 import {
   Main,
@@ -26,6 +29,13 @@ import {
   CarouselContent,
   CarouselContainer,
   ContentBanner,
+  AboutTitle,
+  AboutDescription,
+  AboutContent,
+  Icon,
+  AboutBanner,
+  TextBanner,
+  AboutIcon,
 } from "./styles";
 
 export const Home = () => {
@@ -35,21 +45,18 @@ export const Home = () => {
         <FindCard redirectTo="/reservas" />
         <Banner>
           <ContentBanner>
-            <TitleBanner>
-              Conheça o nosso site e encontre sua viagem com os melhores
-              descontos.
-            </TitleBanner>
-            <PrimaryButton type="primary" size="large">
+            <TitleBanner>Viagens com os melhores descontos.</TitleBanner>
+            <PrimaryButton type="primary" size="small" color="light">
               Encontre aqui
             </PrimaryButton>
           </ContentBanner>
-          <Image src="https://i.postimg.cc/YCCd83V3/e6612f48-65c9-4b37-b875-fa2eeb3d2f97.jpg" />
+          <Image src={photo_travel} />
         </Banner>
         <Content>
           <Title>Destinos mais buscados hoje no Brasil</Title>
           <CarouselContainer>
             <CarouselContent>
-              <Carousel>
+              <PlacesCarousel>
                 {destinations_adverts.map((item) => (
                   <Link key={item.id}>
                     <AntCard cover={<CardImg src={item.img} key={item.id} />}>
@@ -60,19 +67,32 @@ export const Home = () => {
                     </AntCard>
                   </Link>
                 ))}
-              </Carousel>
+              </PlacesCarousel>
             </CarouselContent>
           </CarouselContainer>
         </Content>
         <Content>
-          <Title>Sobre a Let's Travel</Title>
-          <AntRow gutter={[245, 40]}>
-            {about.map((item) => (
-              <AntCol xxl={12} xs={24} key={item.id}>
-                <AboutCard title={item.title}>{item.description}</AboutCard>
-              </AntCol>
-            ))}
-          </AntRow>
+          <AboutBanner>
+            <AboutIcon src={airplane}></AboutIcon>
+            <TextBanner>
+              Conheça mais sobre o <span>nosso site</span>
+            </TextBanner>
+          </AboutBanner>
+        </Content>
+        <Content>
+          <CarouselContent>
+            <AboutCarousel>
+              {about.map((item) => (
+                <AboutCard key={item.id}>
+                  <Icon src={item.icon} />
+                  <AboutContent>
+                    <AboutTitle>{item.title}</AboutTitle>
+                    <AboutDescription>{item.description}</AboutDescription>
+                  </AboutContent>
+                </AboutCard>
+              ))}
+            </AboutCarousel>
+          </CarouselContent>
         </Content>
       </Main>
     </App>

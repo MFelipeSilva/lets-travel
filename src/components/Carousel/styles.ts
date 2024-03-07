@@ -10,7 +10,7 @@ export const CardCarousel = styled(Carousel)`
   }
 
   & > button {
-    margin: -45px 30px 0 30px !important;
+    margin: -20px 50px !important;
     width: 40px !important;
     height: 40px !important;
 
@@ -20,34 +20,60 @@ export const CardCarousel = styled(Carousel)`
   }
 
   .slick-slide {
-    margin-right: 4em;
-  }
+    padding: 10px 0;
+    margin-right: 1.3em;
 
-  .slick-slide > div {
-    min-height: 30em !important;
-  }
-
-  @media (min-width: 1200px) {
-    .slick-slide {
-      width: 5.5% !important;
+    &:last-child {
+      margin-right: 0.2em;
     }
   }
 
   @media (max-width: 1199px) and (min-width: 992px) {
     .slick-slide {
-      width: 3.5% !important;
+      width: 23em !important;
     }
   }
 
-  @media (max-width: 991px) and (min-width: 768px) {
-    .slick-slide {
-      width: 50% !important;
-    }
-  }
-
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .slick-slide {
       width: 100% !important;
+      height: 100%;
+    }
+  }
+`;
+
+export const CardAboutCarousel = styled(Carousel)`
+  & > div > div {
+    display: flex !important;
+  }
+
+  .slick-slide {
+    padding: 10px 0;
+    margin-right: 1.3em;
+
+    &:last-child {
+      margin-right: 0.3em;
+    }
+  }
+
+  .slick-dots {
+    bottom: -30px !important;
+
+    & > li {
+      width: 35px;
+      height: 6px;
+      border-radius: 15px;
+      background-color: rgba(37, 37, 39, 0.15);
+
+      & > button {
+        height: 0 !important;
+      }
+    }
+
+    & > .slick-active {
+      width: 35px !important;
+      height: 6px !important;
+      background-color: #208b3a;
     }
   }
 `;

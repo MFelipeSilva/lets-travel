@@ -8,7 +8,8 @@ export const Container = styled.footer`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: #f2f4f5;
+  background-color: #ffffff;
+  border-top: 1px solid #dfe0e9;
 `;
 
 export const ContentCol = styled.div`

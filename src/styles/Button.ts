@@ -2,16 +2,30 @@ import { Button } from "antd";
 
 import styled from "styled-components";
 
-export const PrimaryButton = styled(Button)`
+interface IPrimaryButton {
+  color?: string;
+}
+
+export const PrimaryButton = styled(Button)<IPrimaryButton>`
   height: 100%;
   padding: 0 30px;
   font-weight: 600;
+  color: ${({ color }) => (color === "light" ? "#000000" : "#ffffff")};
   font-size: clamp(10pt, 1vw, 11pt) !important;
   border-radius: 15px !important;
+  background-color: ${({ color }) =>
+    color === "light" ? "#ffffff" : "#208b3a"};
 
   @media (max-width: 768px) {
     width: 100%;
     height: 2.88em;
+  }
+
+  &:hover {
+    color: ${({ color }) =>
+      color === "light" ? "#000000" : "#ffffff"} !important;
+    background-color: ${({ color }) =>
+      color === "light" ? "#ffffff" : "#25a244"} !important;
   }
 `;
 
