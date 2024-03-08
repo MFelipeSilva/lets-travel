@@ -114,14 +114,14 @@ export const AboutCarousel = ({ children }: CarouselProps) => {
     dots: true,
     infinite: false,
     initialSlides: false,
-    slidesToShow: 2.5,
+    slidesToShow: 2,
     slidesToScroll: 2,
 
     responsive: [
       {
         breakpoint: 1600,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
           slidesToScroll: 2,
         },
       },

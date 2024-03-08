@@ -29,7 +29,12 @@ export const Pages = styled.ul`
   @media (min-width: 1200px) {
     & > svg {
       display: none;
+      font-size: 30pt;
     }
+  }
+
+  & > svg {
+    font-size: 20px;
   }
 `;
 

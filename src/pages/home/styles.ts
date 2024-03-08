@@ -109,7 +109,7 @@ export const AboutBanner = styled.div`
   height: 5em;
   gap: 0.5em;
   border-radius: 15px;
-  background: linear-gradient(to right, #208b3a, #2dc653);
+  background: linear-gradient(25deg, #208b3a, #2dc653 50%);
   align-items: center;
   flex-direction: row;
   justify-content: center;
@@ -169,14 +169,6 @@ export const CardImg = styled(Img)`
 
 export const Link = styled.a`
   text-decoration: none;
-`;
-
-export const AntRow = styled(Row)``;
-
-export const AntCol = styled(Col)`
-  display: flex;
-  gap: 2.5em;
-  flex-direction: column;
 `;
 
 export const AboutCard = styled.div`

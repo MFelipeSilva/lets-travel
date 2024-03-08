@@ -16,8 +16,6 @@ import {
   Main,
   Title,
   CardImg,
-  AntRow,
-  AntCol,
   Banner,
   Image,
   Content,
